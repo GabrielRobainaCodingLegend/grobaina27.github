@@ -1,17 +1,27 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  background: #fdfdfd;
-  color: #333;
-  line-height: 1.6;
+  background: #f9fbfd;
+  color: #2a2a2a;
+  line-height: 1.7;
 }
 
 header {
-  background: #222;
+  background: #1e3a8a;
   color: #fff;
   text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 1rem 2rem;
+  position: relative;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  margin-bottom: 1rem;
 }
 
 section {
@@ -24,18 +34,28 @@ h2 {
   border-bottom: 2px solid #ccc;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+  color: #1e3a8a;
 }
 
 .project {
-  background: #f4f4f4;
+  background: #e5e7eb;
   padding: 1rem;
   margin-bottom: 1rem;
-  border-left: 4px solid #007acc;
+  border-left: 4px solid #1e3a8a;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
 }
 
 a {
-  color: #007acc;
+  color: #1e3a8a;
   text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
@@ -45,6 +65,7 @@ a:hover {
 footer {
   text-align: center;
   padding: 1rem;
-  background: #eee;
+  background: #e0e7ff;
+  color: #1e3a8a;
   margin-top: 2rem;
 }
