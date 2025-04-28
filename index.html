@@ -1,58 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabriel Robaina's Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <img src="profile.jpg" alt="Gabriel Robaina" class="profile-pic" />
-    <h1>Gabriel Robaina</h1>
-    <p>Student • Aspiring Developer • Computer Science Enthusiast</p>
-  </header>
+<div class="project-card">
+  <h3>McDonalds Menu Project</h3>
+  <p>A fun Python project simulating a McDonald's ordering experience! Features menu selection, cost calculation, and special discounts.</p>
+  <button class="toggle-btn" onclick="toggleCode('code1')">Show Code</button>
+  <pre id="code1" class="hidden">
+<code>
+order = []
+loop_check = True
 
-  <section id="bio">
-    <h2>About Me</h2>
-    <p>Hi! I am Gabriel Robaina, a sophomore at Belen Jesuit Preparatory School and am currently partaking in the Honors Computer Science course.</p>
-  </section>
+print("Welcome to McDonalds! Can I take your order?")
 
-  <section id="resume">
-    <h2>Resume Highlights</h2>
-    <ul>
-      <li>Proficient in Python, HTML, and CSS</li>
-      <li>Experience with JavaScript and Git/GitHub</li>
-      <li>Built multiple web-based projects and applications</li>
-      <li>Strong problem-solving and algorithmic thinking skills</li>
-      <li>Passionate about learning new technologies and creating meaningful digital experiences</li>
-    </ul>
-  </section>
+while (loop_check):
+  order = []
+  burger = input("Please pick a type of burger! We have 3 options: BigMac for $6.37, Quart Pounder w/ Cheese for $6.49, or Cheeseburger for $2.73.")
+  if (burger in ["BigMac", "Quarter Pounder w/ Cheese", "Cheeseburger"]):
+    burger_bought = True
+    order.append(burger)
+    print(burger)
+  else:
+    burger_bought = False
+    print("That's not a burger that we sell here. Sorry!")
+  
+  beverage = input("Would you like a bev, yes or no?")
+  if (beverage == "yes"):
+    beverage_bought = True
+    beverage = input("Would you like a small for $1.69, a medium for $1.69, or a large for $1.69?")
+    if (beverage in ["small", "medium", "large"]):
+      print("You said", beverage, "drink, okay...")
+      order.append(beverage)
+    else:
+      beverage_bought = False
+      print("That's not an option for the drink size. Sorry!")
+  else:
+    beverage_bought = False
+    print("You did not order a drink.")
+  
+  total = 0
+  if (burger == "BigMac"):
+    total += 6.37
+  elif (burger == "Quarter Pounder w/ Cheese"):
+    total += 6.49
+  elif (burger == "Cheeseburger"):
+    total += 2.73
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Project One</h3>
-      <p>A short description of the project.</p>
-      <a href="https://github.com/yourusername/project-one" target="_blank">View on GitHub</a>
-    </div>
-    <div class="project">
-      <h3>Project Two</h3>
-      <p>Another project with a brief summary.</p>
-      <a href="https://github.com/yourusername/project-two" target="_blank">View on GitHub</a>
-    </div>
-  </section>
+  if (beverage in ["small", "medium", "large"]):
+    total += 1.69
+  
+  fries = input("Would you like french fries, yes or no? ")
+  if (fries == "yes"):
+    fries_bought = True
+    fries = input("Would you like a small for $1.89, a medium for $3.21, or a large for $3.44? ")
+    order.append(fries)
+    print("You said", fries, "french fries, okay...")
+  else:
+    fries_bought = False
+    print("You did not order french fries.")
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">@yourusername</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">yourprofile</a></p>
-  </section>
+  if (fries == "small"):
+    total += 1.89
+  elif (fries == "medium"):
+    total += 3.21
+  elif (fries == "large"):
+    total += 3.44
 
-  <footer>
-    <p>© 2025 Gabriel Robaina</p>
-  </footer>
-</body>
-</html>
+  ketchup_string = input("Now for the final item. How many ketchup packets would you like? ")
+  try:
+    ketchup = int(ketchup_string)
+    ketchup_cost = ketchup * .25
+    total += ketchup_cost
+    order.append(ketchup_string)
+  except ValueError:
+    print("Sorry! We can't give that many ketchup packets!")
+
+  print(order)
+  print(total)
+
+  again = input("Is another person ready to order? yes or no")
+  if (again == "yes"):
+    loop_check = True
+  else:
+    loop_check = False
+    print("Closing Time! BYE-BYE!")
+</code>
+  </pre>
+</div>
+
+<script>
+  function toggleCode(id) {
+    const codeBlock = document.getElementById(id);
+    if (codeBlock.classList.contains('hidden')) {
+      codeBlock.classList.remove('hidden');
+    } else {
+      codeBlock.classList.add('hidden');
+    }
+  }
+</script>
